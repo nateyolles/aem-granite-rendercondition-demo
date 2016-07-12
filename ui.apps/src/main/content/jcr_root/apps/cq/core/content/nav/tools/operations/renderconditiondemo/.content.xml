@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" 
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Render Condition Demo"
+    jcr:description="Sample form demonstrating various Granite Render Conditions."
+    id="cq-tools-operations-render-condition-demo"
+    href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html"
+    icon="project"/>

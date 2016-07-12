@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[sling:VanityPath]"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Granite Render Conditions Demo"
+    sling:resourceType="granite/ui/components/shell/propertiespage"
+    backHref="/projects.html"
+    consoleId="cq-tools-operations-render-condition-demo"
+    formId="renderConditionsDemoForm">
+    <head jcr:primaryType="nt:unstructured">
+        <clientlibs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+            categories="[coralui3,granite.ui.coral.foundation,renderconditiondemo.editor]"/>
+        <viewport
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/admin/page/viewport"/>
+        <meta
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/meta"
+            content="chrome=1"
+            name="X-UA-Compatible"/>
+        <favicon
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/page/favicon"/>
+    </head>
+    <content
+        granite:class="centered"
+        granite:id="renderConditionDemoForm"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/form"
+        action=""
+        method="post"
+        style="vertical">
+        <items jcr:primaryType="nt:unstructured">
+            <generalSettings
+                jcr:primaryType="nt:unstructured"
+                jcr:title="General Settings"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <description
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="General Settings"
+                                sling:resourceType="granite/ui/components/foundation/container">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/well"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <instructions
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/text"
+                                        text="The links below will refresh this same page with different selectors, suffixes, querystring parameters, user-agent headers, cookies and user impersonations. Try clicking on those links, spoofing your user-agent header or using multiple browsers, and lock/unlock &quot;/content/renderconditiondemo/en.html&quot; to witness the render conditions in action. There are many Granite widgets defined on this page, however, only the widgets that satisfy their render conditions will display."/>
+                                    <links
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/list">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <linkDefault
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Show page without a suffix, selector, param or cookie"
+                                                class="reset-page"
+                                                href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html"/>
+                                            <linkSuffix
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Show page with suffix &quot;/foo/bar&quot;"
+                                                href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html/foo/bar"/>
+                                            <linkSuffixNotLockedAndModifiable
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Show page with suffix &quot;/content/renderconditiondemo/en&quot;"
+                                                href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html/content/renderconditiondemo/en"/>
+                                            <linkSelectorBar
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Show page with selector &quot;bar&quot;"
+                                                href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.bar.html"/>
+                                            <linkSelectorAnything
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Show page with any selector &quot;anything&quot;"
+                                                href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.anything.html"/>
+                                            <linkParam
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Show page with querystring parameter &quot;biz=baz&quot;"
+                                                href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html?biz=baz"/>
+                                            <linkSetCookie
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Set cookie &quot;bat=qux&quot; and refresh"
+                                                class="set-cookie"
+                                                href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html"/>
+                                            <linkUnsetCookie
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Delete cookie &quot;bat&quot; and refresh"
+                                                class="delete-cookie"
+                                                href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html"/>
+                                            <linkImpersonateAuthor
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Impersonate &quot;author&quot; (no write permissions to &quot;/etc/workflow/instances&quot;)"
+                                                href="/?sling.auth.redirect=%2Fapps%2Frenderconditiondemo%2Fcomponents%2Fadmin%2Ftools%2Foperations%2Frenderconditiondemo.html&amp;sudo=author"/>
+                                            <linkRevertToSelf
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Revert to self (admin with write permissions to &quot;/etc/workflow/instances&quot;)"
+                                                href="/?sling.auth.redirect=%2Fapps%2Frenderconditiondemo%2Fcomponents%2Fadmin%2Ftools%2Foperations%2Frenderconditiondemo.html&amp;sudo=-"/>
+                                        </items>
+                                    </links>
+                                </items>
+                            </description>
+                            <widgetAlways
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This always shows"
+                                name="./widgetAlways"/>
+                            <widgetHeaderChrome
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows when header &quot;User-Agent&quot; contains &quot;chrome&quot;"
+                                name="./widgetHeaderChrome">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                    expression="${granite:containsIgnoreCase(header['User-Agent'], 'chrome')}"/>
+                            </widgetHeaderChrome>
+                            <widgetHeaderFirefox
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows when header &quot;User-Agent&quot; contains &quot;firefox&quot;"
+                                name="./widgetHeaderFirefox">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                    expression="${granite:containsIgnoreCase(header['User-Agent'], 'firefox')}"/>
+                            </widgetHeaderFirefox>
+                            <widgetHeaderOther
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows when header &quot;User-Agent&quot; does not contain &quot;chrome&quot; or  &quot;firefox&quot;"
+                                name="./widgetHeaderOther">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                    expression="${!granite:containsIgnoreCase(header['User-Agent'], 'chrome') and !granite:containsIgnoreCase(header['User-Agent'], 'firefox')}"/>
+                            </widgetHeaderOther>
+                            <widgetSuffix
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows with suffix &quot;/foo/bar&quot;"
+                                name="./widgetSuffix">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                    expression="${granite:containsIgnoreCase(requestPathInfo.suffix, '/foo/bar')}"/>
+                            </widgetSuffix>
+                            <widgetSelector
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldLabel="This only shows with selector &quot;bar&quot;"
+                                name="./widgetSelector">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <alpha
+                                        jcr:primaryType="nt:unstructured"
+                                        text="alpha"
+                                        value="alpha"/>
+                                    <bravo
+                                        jcr:primaryType="nt:unstructured"
+                                        text="bravo"
+                                        value="bravo"/>
+                                </items>
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                    expression="${requestPathInfo.selectorString == 'bar'}"/>
+                            </widgetSelector>
+                            <widgetSelectorNotEmpty
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This shows with any selector string"
+                                name="./widgetSelectorNotEmpty">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                    expression="${not empty requestPathInfo.selectorString}"/>
+                            </widgetSelectorNotEmpty>
+                            <widgetParam
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows with querystring param &quot;biz=baz&quot;"
+                                name="./widgetParam">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                    expression="${param.biz == 'baz'}"/>
+                            </widgetParam>
+                            <widgetCookie
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows with cookie &quot;bat=qux&quot;"
+                                name="./widgetCookie">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                    expression="${cookie.bat.value == 'qux'}"/>
+                            </widgetCookie>
+                            <widgetPrivilege
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows if you can write to &quot;/etc/workflow/instances&quot;"
+                                name="./widgetPrivilege">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/renderconditions/privilege"
+                                    path="/etc/workflow/instances"
+                                    privileges="jcr:write"/>
+                            </widgetPrivilege>
+                            <widgetNotLockedCanModfy
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows when the suffix is not locked and can be modified"
+                                name="./widgetNotLockedCanModfy">
+                                <rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                    <not
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                        <islocked
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/renderconditions/islocked"
+                                            path="${requestPathInfo.suffix}"/>
+                                    </not>
+                                    <canmodify
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/renderconditions/canmodify"
+                                        path="${requestPathInfo.suffix}"/>
+                                </rendercondition>
+                            </widgetNotLockedCanModfy>
+                            <widgetCustomRenderConditionWeekend
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows on weekends"
+                                name="./widgetCustomRenderConditionWeekend">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="renderconditiondemo/components/renderconditions/day"
+                                    days="[Sunday,Saturday]"/>
+                            </widgetCustomRenderConditionWeekend>
+                            <widgetCustomRenderConditionWeekday
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows on weekdays"
+                                name="./widgetCustomRenderConditionWeekday">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="renderconditiondemo/components/renderconditions/day"
+                                    days="[Monday,Tuesday,Wednesday,Thursday,Friday]"/>
+                            </widgetCustomRenderConditionWeekday>
+                        </items>
+                    </column>
+                </items>
+            </generalSettings>
+        </items>
+    </content>
+    <title
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/text"
+        text="Render Condition Demo"/>
+</jcr:root>

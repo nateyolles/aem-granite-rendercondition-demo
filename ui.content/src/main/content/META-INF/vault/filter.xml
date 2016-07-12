@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter mode="merge" root="/content/renderconditiondemo"/>
+    <filter mode="merge" root="/content/dam/renderconditiondemo"/>
+</workspaceFilter>
