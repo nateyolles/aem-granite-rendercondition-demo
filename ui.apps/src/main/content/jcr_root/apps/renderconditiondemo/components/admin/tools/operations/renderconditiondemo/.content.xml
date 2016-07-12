@@ -77,6 +77,11 @@
                                                 sling:resourceType="granite/ui/components/foundation/hyperlink"
                                                 text="Show page with suffix &quot;/content/renderconditiondemo/en&quot;"
                                                 href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html/content/renderconditiondemo/en"/>
+                                            <linkSuffixHasProperty
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/hyperlink"
+                                                text="Show page with suffix &quot;/content/renderconditiondemo/en/jcr:content/par/text&quot;"
+                                                href="/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html/content/renderconditiondemo/en/jcr:content/par/text"/>
                                             <linkSelectorBar
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/foundation/hyperlink"
@@ -266,6 +271,17 @@
                                     sling:resourceType="renderconditiondemo/components/renderconditions/day"
                                     days="[Monday,Tuesday,Wednesday,Thursday,Friday]"/>
                             </widgetCustomRenderConditionWeekday>
+                            <widgetCustomRenderConditionHasProperty
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldLabel="This only shows if &quot;/content/renderconditiondemo/en/jcr:content/par/text&quot; has property &quot;text&quot;"
+                                name="./widgetCustomRenderConditionHasProperty">
+                                <granite:rendercondition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="renderconditiondemo/components/renderconditions/hasProperty"
+                                    resourcePath="${requestPathInfo.suffix}"
+                                    propertyName="text"/>
+                            </widgetCustomRenderConditionHasProperty>
                         </items>
                     </column>
                 </items>

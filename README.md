@@ -9,6 +9,7 @@ This project demonstrates how to use Granite render conditions to evaluate wheth
 - request headers
 - JCR privileges
 - custom render condition based off the current day
+- customer render condition based off the resource path evaluated with JSP Expression Language (EL)
 
 ## Modules
 
@@ -23,7 +24,9 @@ Navigate to the custom admin UI at `AEM > Tools > Operations > Render Condition 
 
 The links on the form will refresh this same page with different selectors, suffixes, querystring parameters, user-agent headers, cookies and user impersonations. Try clicking on those links, spoofing your user-agent header or using multiple browsers, and lock/unlock "/content/renderconditiondemo/en.html" to witness the render conditions in action. There are many Granite widgets defined on the page, however, only the widgets that satisfy their render conditions will display.
 
-View the custom Render Condition at [/apps/renderconditiondemo/components/renderconditions/day/day.jsp](http://localhost:4502/crx/de/index.jsp#/apps/renderconditiondemo/components/renderconditions/day/day.jsp). This render condition demonstrates how to show/hide a widget based off the current day.
+View the custom Day Render Condition at [http://localhost:4502/crx/de/index.jsp#/apps/renderconditiondemo/components/renderconditions/day/day.jsp](http://localhost:4502/crx/de/index.jsp#/apps/renderconditiondemo/components/renderconditions/day/day.jsp). This render condition demonstrates how to show/hide a widget based off the current day.
+
+View the custom Has Property Render Condition at [http://localhost:4502/crx/de/index.jsp#/apps/renderconditiondemo/components/renderconditions/hasProperty/hasProperty.jsp](http://localhost:4502/crx/de/index.jsp#/apps/renderconditiondemo/components/renderconditions/hasProperty/hasProperty.jsp). This custom Render Condition utilizes the ExpressionHelper to evaluate an Expression Language expression such as `${param.resourcePath}` or `${requestPathInfo.suffix}`.
 
 The settings are located in the Granite Widgets at [http://localhost:4502/crx/de/index.jsp#/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo](http://localhost:4502/crx/de/index.jsp#/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo). Notice the `granite:rendercondition` nodes under each widget, their resource type, and the JSP Expression Language used in the properties.
 
