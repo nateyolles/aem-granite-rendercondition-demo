@@ -19,7 +19,9 @@ The main parts of the template are:
 
 ## How to view the demo
 
-Navigate to the custom admin UI at `AEM > Tools > Operations > Render Condition Demo` or go directly to [http://localhost:4502/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html](http://localhost:4502/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html). This is the custom form with each widget utilizing a different render condition. Click on the links on the page to alter the path and change the form.
+Navigate to the custom admin UI at `AEM > Tools > Operations > Render Condition Demo` or go directly to [http://localhost:4502/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html](http://localhost:4502/apps/renderconditiondemo/components/admin/tools/operations/renderconditiondemo.html). This is the custom form with each widget utilizing a different render condition.
+
+The links on the form will refresh this same page with different selectors, suffixes, querystring parameters, user-agent headers, cookies and user impersonations. Try clicking on those links, spoofing your user-agent header or using multiple browsers, and lock/unlock "/content/renderconditiondemo/en.html" to witness the render conditions in action. There are many Granite widgets defined on the page, however, only the widgets that satisfy their render conditions will display.
 
 View the custom Render Condition at [/apps/renderconditiondemo/components/renderconditions/day/day.jsp](http://localhost:4502/crx/de/index.jsp#/apps/renderconditiondemo/components/renderconditions/day/day.jsp). This render condition demonstrates how to show/hide a widget based off the current day.
 
