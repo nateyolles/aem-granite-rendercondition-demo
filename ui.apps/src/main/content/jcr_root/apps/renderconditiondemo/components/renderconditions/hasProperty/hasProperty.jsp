@@ -1,6 +1,6 @@
 <%--
   ==============================================================================
-  has roperty render condition
+  has property render condition
    A condition that takes a resource path and property name and makes the
    rendering decision based on whether that resource has the property.
   /**
