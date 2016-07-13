@@ -11,6 +11,8 @@ This project demonstrates how to use Granite render conditions to evaluate wheth
 - custom render condition based off the current day
 - customer render condition based off the resource path evaluated with JSP Expression Language (EL)
 
+See [http://www.nateyolles.com/blog/2016/07/aem-granite-custom-render-conditions](http://www.nateyolles.com/blog/2016/07/aem-granite-custom-render-conditions) for a detailed description of how Granite render conditions work.
+
 ## Modules
 
 The main parts of the template are:
